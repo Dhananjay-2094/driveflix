@@ -50,13 +50,6 @@ public class Movie {
         return "";
     }
 
-    // Poster links from Google Drive sharing pages do not load reliably in ImageView/Glide.
-    // This method accepts any of these formats:
-    // 1) Full normal image URL
-    // 2) Google Drive file share URL: https://drive.google.com/file/d/FILE_ID/view
-    // 3) Google Drive uc URL: https://drive.google.com/uc?export=view&id=FILE_ID
-    // 4) Plain Google Drive file id
-    // and converts Drive IDs to the public thumbnail endpoint.
     public String posterUrl(){
         if(poster==null || poster.trim().isEmpty()) return "";
         String p=poster.trim();
@@ -75,10 +68,15 @@ public class Movie {
         if(m.find()) return m.group(1);
         m=java.util.regex.Pattern.compile("/d/([^/]+)").matcher(s);
         if(m.find()) return m.group(1);
-        // Plain Drive IDs are usually long and contain only these characters.
         if(s.matches("[A-Za-z0-9_-]{20,}")) return s;
         return null;
     }
 
-    public String safeFileName(){return id.replaceAll("[^A-Za-z0-9._-]","_")+".mp4";}
+    public String safeFileName(){return safeFileName("mp4");}
+    public String safeFileName(String ext){
+        if(ext==null || ext.trim().isEmpty()) ext="mp4";
+        ext=ext.replaceAll("[^A-Za-z0-9]","").toLowerCase(java.util.Locale.US);
+        if(ext.isEmpty()) ext="mp4";
+        return id.replaceAll("[^A-Za-z0-9._-]","_")+"."+ext;
+    }
 }
