@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-07-05T12:00:00Z",
+  "movies": [
+    {
+      "id": "sample_big_buck_bunny",
+      "title": "Big Buck Bunny",
+      "year": "2008",
+      "category": "Demo",
+      "description": "A sample movie used to test DriveFlix download-first playback.",
+      "poster": "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
+      "movie": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "subtitle": ""
+    },
+    {
+      "id": "your_movie_1",
+      "title": "Your Movie Title",
+      "year": "2026",
+      "category": "Action",
+      "description": "Short movie description.",
+      "poster": "GOOGLE_DRIVE_POSTER_FILE_ID_OR_PUBLIC_IMAGE_URL",
+      "movie": "https://drive.google.com/file/d/GOOGLE_DRIVE_MOVIE_FILE_ID/view?usp=sharing",
+      "subtitle": "https://drive.google.com/file/d/GOOGLE_DRIVE_SUBTITLE_FILE_ID/view?usp=sharing"
+    }
+  ]
+}
